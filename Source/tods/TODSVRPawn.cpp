@@ -12,7 +12,6 @@ ATODSVRPawn::ATODSVRPawn()
 	//Setup basic scene needs
 	m_scene = CreateDefaultSubobject<USceneComponent>(TEXT("SceneRoot"));
 	m_movementController = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("MovementController"));
-	m_chaperone = CreateDefaultSubobject<USteamVRChaperoneComponent>(TEXT("SteamVR Chaperone"));
 
 	//Init camera
 	m_cameraRoot = CreateDefaultSubobject<USceneComponent>(TEXT("VR Camera Root"));
@@ -48,6 +47,7 @@ ATODSVRPawn::ATODSVRPawn()
 void ATODSVRPawn::BeginPlay()
 {
 	Super::BeginPlay();
+	UHeadMountedDisplayFunctionLibrary::SetTrackingOrigin(EHMDTrackingOrigin::Type::Floor);
 	
 }
 

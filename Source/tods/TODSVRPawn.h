@@ -6,13 +6,12 @@
 #include "GameFramework/Pawn.h"
 
 #include "HeadMountedDisplay.h"
-#include "SteamVRChaperoneComponent.h"
 #include "MotionControllerComponent.h"
 #include "XRMotionControllerBase.h"
 #include "Components/SceneComponent.h"
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Camera/CameraComponent.h"
-
+#include "HeadMountedDisplayFunctionLibrary.h"
 
 #include "TODSVRPawn.generated.h"
 
@@ -31,17 +30,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-private:
 	UPROPERTY() //Root scene
 	USceneComponent* m_scene;
 	UPROPERTY() //Movement controller
 	UFloatingPawnMovement* m_movementController;
-	UPROPERTY() //SteamVR prereq
-	USteamVRChaperoneComponent* m_chaperone;	
 	UPROPERTY() //Root camera
 	USceneComponent* m_cameraRoot;
 	UPROPERTY() //Actual camera
@@ -51,4 +43,8 @@ private:
 	UMotionControllerComponent* m_leftController;
 	UPROPERTY()
 	UMotionControllerComponent* m_rightController;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 };
