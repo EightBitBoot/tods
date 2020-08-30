@@ -12,6 +12,9 @@
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Camera/CameraComponent.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
+#include "OculusFunctionLibrary.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
+#include "Components/LineBatchComponent.h"
 
 #include "TODSVRPawn.generated.h"
 
@@ -44,6 +47,8 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UMotionControllerComponent* m_rightController;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TArray<FVector> gPoints;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
