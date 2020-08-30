@@ -30,18 +30,18 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY() //Root scene
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) //Root scene
 	USceneComponent* m_scene;
-	UPROPERTY() //Movement controller
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) //Movement controller
 	UFloatingPawnMovement* m_movementController;
-	UPROPERTY() //Root camera
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) //Root camera
 	USceneComponent* m_cameraRoot;
-	UPROPERTY() //Actual camera
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite) //Actual camera
 	UCameraComponent* m_camera;
 
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UMotionControllerComponent* m_leftController;
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UMotionControllerComponent* m_rightController;
 
 protected:
